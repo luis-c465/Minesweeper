@@ -2,13 +2,14 @@ package luisc.minesweeper;
 
 import luisc.lib.Obj;
 import luisc.lib.PC;
+import processing.core.PApplet;
 import processing.core.PImage;
 import processing.event.MouseEvent;
 
 public class Board extends Obj {
 
   private final int NUM_IMAGES = 13;
-  private final int CELL_SIZE = 30;
+  private int CELL_SIZE = 30;
 
   private final int COVER_FOR_CELL = 10;
   private final int MARK_FOR_CELL = 10;
@@ -22,16 +23,16 @@ public class Board extends Obj {
   private final int DRAW_MARK = 11;
   private final int DRAW_WRONG_MARK = 12;
 
-  private final int N_MINES = 40;
-  public int numFlagsLeft = N_MINES;
-  private final int N_ROWS = 16;
-  private final int N_COLS = 16;
+  private int N_MINES = 40;
+  private int N_ROWS = 16;
+  private int N_COLS = 16;
 
+  public int numFlagsLeft = N_MINES;
   private final int BOARD_WIDTH = N_COLS * CELL_SIZE + 1;
   private final int BOARD_HEIGHT = N_ROWS * CELL_SIZE + 1;
 
-  public static final int LEFT_MARGIN = 100;
-  public static final int TOP_MARGIN = 200;
+  public int LEFT_MARGIN = 100;
+  public int TOP_MARGIN = 200;
 
   private int[] field;
   private boolean inGame;
@@ -344,6 +345,36 @@ public class Board extends Obj {
         }
       }
     }
+  }
+
+  public Board(App a, int numMines, int numRows, int numCols, int cellSize) {
+    super(a);
+    this.N_MINES = numMines;
+    this.N_ROWS = numRows;
+    this.N_COLS = numCols;
+    this.CELL_SIZE = cellSize;
+
+    this.numFlagsLeft = numMines;
+  }
+
+  public Board(App a, int numMines, int numRows, int numCols) {
+    super(a);
+    this.N_MINES = numMines;
+    this.N_ROWS = numRows;
+    this.N_COLS = numCols;
+    this.CELL_SIZE = 800 / (PApplet.max(numRows, numCols));
+    this.numFlagsLeft = numMines;
+
+    int height = numRows * CELL_SIZE;
+    int width = numCols * CELL_SIZE;
+
+    // Center the board here!
+    TOP_MARGIN = (App.h - Header.h - height) / 2 + Header.h;
+    LEFT_MARGIN = (App.h - width) / 2;
+  }
+
+  public Board(App a, int numMines, int num) {
+    this(a, numMines, num, num);
   }
 
   public Board(App a) {
