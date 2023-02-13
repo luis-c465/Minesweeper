@@ -7,7 +7,7 @@ import processing.core.PImage;
 public class Board extends Obj {
 
   private final int NUM_IMAGES = 13;
-  private final int CELL_SIZE = 15;
+  private final int CELL_SIZE = 30;
 
   private final int COVER_FOR_CELL = 10;
   private final int MARK_FOR_CELL = 10;
@@ -27,6 +27,9 @@ public class Board extends Obj {
 
   private final int BOARD_WIDTH = N_COLS * CELL_SIZE + 1;
   private final int BOARD_HEIGHT = N_ROWS * CELL_SIZE + 1;
+
+  public static final int LEFT_MARGIN = 100;
+  public static final int TOP_MARGIN = 200;
 
   private int[] field;
   private boolean inGame;
@@ -262,7 +265,13 @@ public class Board extends Obj {
         }
 
         p.imageMode(PC.CORNER);
-        p.image(img[cell], (j * CELL_SIZE), (i * CELL_SIZE));
+        p.image(
+          img[cell],
+          LEFT_MARGIN + (j * CELL_SIZE),
+          TOP_MARGIN + (i * CELL_SIZE),
+          CELL_SIZE,
+          CELL_SIZE
+        );
       }
     }
 
@@ -278,8 +287,8 @@ public class Board extends Obj {
     int x = e.getX();
     int y = e.getY();
 
-    int cCol = x / CELL_SIZE;
-    int cRow = y / CELL_SIZE;
+    int cCol = (x - LEFT_MARGIN) / CELL_SIZE;
+    int cRow = (y - TOP_MARGIN) / CELL_SIZE;
 
     boolean doRepaint = false;
 
