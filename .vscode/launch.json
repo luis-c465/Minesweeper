@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch App",
+      "request": "launch",
+      "mainClass": "luisc.minesweeper.App",
+      "projectName": "minesweeper",
+      "stepFilters": {
+        "skipClasses": ["$JDK"],
+        "skipSynthetics": false,
+        "skipStaticInitializers": false,
+        "skipConstructors": false
+      }
+    }
+  ]
+}

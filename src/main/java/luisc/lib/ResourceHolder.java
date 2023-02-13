@@ -1,0 +1,36 @@
+package luisc.lib;
+
+import processing.core.PApplet;
+
+public abstract class ResourceHolder<T> {
+
+  public PApplet p;
+  public Class<? extends ResourceHolder> _class;
+
+  public ResourceHolder(PApplet p) {
+    this.p = p;
+    this._class = this.getClass();
+
+    load();
+  }
+
+  protected abstract void load();
+
+  /**
+   * Safely and dynamically get an asset with the given name
+   *
+   * @return null if an error occurred getting the asset
+   */
+  public T getAsset(String name) {
+    try {
+      return (T) get(name);
+    } catch (Exception e) {
+      return null;
+    }
+  }
+
+  public Object get(String k)
+    throws IllegalAccessException, NoSuchFieldException {
+    return (_class.getDeclaredField(k).get(this));
+  }
+}
