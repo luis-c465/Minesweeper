@@ -2,6 +2,7 @@ package luisc.lib;
 
 import controlP5.ControlP5;
 import java.util.ArrayList;
+import java.util.Random;
 import luisc.minesweeper.App;
 import luisc.resources.Resources;
 import processing.core.PApplet;
@@ -10,6 +11,8 @@ import processing.core.PApplet;
  * Base class for all apps
  */
 public abstract class BaseApp extends PApplet {
+
+  public Random rand = new Random();
 
   public boolean doingIntro = true;
   public boolean doingStartUp = true;
