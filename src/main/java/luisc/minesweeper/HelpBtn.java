@@ -6,7 +6,7 @@ public class HelpBtn extends Btn {
 
   @Override
   protected void _setup() {
-    x = 650;
+    x = App.w - 75;
     y = 50;
 
     txt = "Help";

@@ -36,7 +36,7 @@ public abstract class BaseApp extends PApplet {
 
   public static final String[] appletArgs = {
     "--display=1",
-    "luisc.seating.App",
+    "luisc.minesweeper.App",
   };
 
   // * COLORS

@@ -20,10 +20,10 @@ public final class App extends BaseApp {
   public void draw() {
     defaultSettings();
 
-    intro.update();
-    if (doingIntro) {
-      return;
-    }
+    // intro.update();
+    // if (doingIntro) {
+    //   return;
+    // }
 
     header.update();
     helpModal.update();
@@ -31,8 +31,8 @@ public final class App extends BaseApp {
 
   @Override
   protected void setupAppClasses() {
-    intro = new Intro(this);
-    intro.setup();
+    // intro = new Intro(this);
+    // intro.setup();
 
     header = new Header(this);
     header.setup();
