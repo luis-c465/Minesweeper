@@ -7,17 +7,12 @@ import processing.core.PShape;
 public class Shapes extends ResourceHolder<PShape> {
 
   public PShape skull;
-  public PShape userMinus;
-  public PShape rows;
-  public PShape columns;
+  public PShape flag;
 
   @Override
   protected void load() {
     skull = p.loadShape("skull.svg");
-    userMinus = p.loadShape("user-minus.svg");
-
-    rows = p.loadShape("rows.svg");
-    columns = p.loadShape("columns.svg");
+    flag = p.loadShape("flag.svg");
   }
 
   public Shapes(PApplet p) {

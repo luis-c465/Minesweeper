@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1000" height="1000" viewBox="0 0 1000 1000" xml:space="preserve">
+<defs>
+</defs>
+<rect x="0" y="0" width="100%" height="100%" fill="none"/>
+<g transform="matrix(37.8788 0 0 37.8788 1383.0113 470.4986)" id="408716">
+<g style="" vector-effect="non-scaling-stroke">
+		<g transform="matrix(-1 0 0 1 -24 0)">
+<path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; is-custom-font: none; font-file-url: none; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 h 24 v 24 H 0 z" stroke-linecap="round"/>
+</g>
+		<g transform="matrix(-1 0 0 1 -24 1)">
+<path style="stroke: rgb#FF0E0A); stroke-width: 0; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; is-custom-font: none; font-file-url: none; fill: #FF0E0A; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -13)" d="M 19 4 a 1 1 0 0 1 0.993 0.883 l 0.007 0.117 v 9 a 1 1 0 0 1 -0.883 0.993 l -0.117 0.007 h -13 v 6 a 1 1 0 0 1 -0.883 0.993 l -0.117 0.007 a 1 1 0 0 1 -0.993 -0.883 l -0.007 -0.117 v -16 a 1 1 0 0 1 0.883 -0.993 l 0.117 -0.007 h 14 z" stroke-linecap="round"/>
+</g>
+</g>
+</g>
+</svg>

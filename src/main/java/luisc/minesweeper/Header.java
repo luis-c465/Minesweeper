@@ -1,6 +1,7 @@
 package luisc.minesweeper;
 
 import luisc.lib.Obj;
+import luisc.lib.PC;
 
 /**
  * Shows a information about the program
@@ -12,15 +13,10 @@ public class Header extends Obj {
   public static final int safe = 10;
   public static final int margin_top = 10;
   public static final int h = 100;
-  public static final String title = "Mine sweeper";
-  public static final String r_string = "Rows";
-  public static final String c_string = "Cols";
+  public static final int cy = 50;
   public static final int center = 700 / 2;
-  public static final int bts_begin_y = 125;
-  public static final int bts_begin_y_2 = bts_begin_y * 2 + 20;
-  public static final int x1 = 200;
-  public static final int x2 = 400;
-  public static final int x3 = 600;
+
+  public static final int flags_x = 200;
 
   public HelpBtn helpBtn;
 
@@ -31,14 +27,15 @@ public class Header extends Obj {
 
   @Override
   protected void _update() {
-    showHeader();
+    showFlags();
 
     updateBtns();
   }
 
-  private void showHeader() {
-    p.textAlign(c.CENTER);
-    p.text(title, center, 55);
+  private void showFlags() {
+    p.shapeMode(PC.CENTER);
+    p.shape(r.s.flag, flags_x - 40, cy - 20, 60, 60);
+    p.text(a.board.numFlagsLeft, flags_x + 40, cy);
   }
 
   private void updateBtns() {

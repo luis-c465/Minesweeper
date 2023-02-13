@@ -9,7 +9,8 @@ import processing.event.MouseEvent;
  */
 public final class App extends BaseApp {
 
-  public boolean paused = false;
+  public int wins = 0;
+  public int losses = 0;
   public LinkedList<Student> students = new LinkedList<Student>();
 
   // Game classes

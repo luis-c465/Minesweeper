@@ -3,6 +3,7 @@ package luisc.minesweeper;
 import luisc.lib.Obj;
 import luisc.lib.PC;
 import processing.core.PImage;
+import processing.event.MouseEvent;
 
 public class Board extends Obj {
 
@@ -22,6 +23,7 @@ public class Board extends Obj {
   private final int DRAW_WRONG_MARK = 12;
 
   private final int N_MINES = 40;
+  public int numFlagsLeft = N_MINES;
   private final int N_ROWS = 16;
   private final int N_COLS = 16;
 
@@ -283,7 +285,7 @@ public class Board extends Obj {
     }
   }
 
-  public void mouseClicked(processing.event.MouseEvent e) {
+  public void mouseClicked(MouseEvent e) {
     int x = e.getX();
     int y = e.getY();
 
@@ -305,6 +307,7 @@ public class Board extends Obj {
           if (field[(cRow * N_COLS) + cCol] <= COVERED_MINE_CELL) {
             if (minesLeft > 0) {
               field[(cRow * N_COLS) + cCol] += MARK_FOR_CELL;
+              numFlagsLeft--;
               minesLeft--;
               String msg = Integer.toString(minesLeft);
               statusbar = msg;
@@ -313,6 +316,7 @@ public class Board extends Obj {
             }
           } else {
             field[(cRow * N_COLS) + cCol] -= MARK_FOR_CELL;
+            numFlagsLeft++;
             minesLeft++;
             String msg = Integer.toString(minesLeft);
             statusbar = (msg);
