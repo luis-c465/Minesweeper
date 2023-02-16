@@ -45,7 +45,7 @@ public final class App extends BaseApp {
     helpModal = new HelpModal(this);
     helpModal.setup();
 
-    board = BoardDifficulties.hard(this);
+    board = BoardDifficulties.easy(this);
     board.setup();
   }
 

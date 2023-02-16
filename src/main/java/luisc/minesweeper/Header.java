@@ -36,6 +36,7 @@ public class Header extends Obj {
     showFlags();
     showWinsAndLosses();
     showMoves();
+    // showNumMines();
 
     updateBtns();
   }
@@ -53,8 +54,13 @@ public class Header extends Obj {
     p.text("-", middle_x, cy);
   }
 
+  private void showNumMines() {
+    p.shape(r.s.mine, flags_x - 40, cy - 20 + 50, 60, 60);
+    p.text(a.board.N_MINES, flags_x + 40, cy + 50);
+  }
+
   private void showMoves() {
-    p.shape(r.s.moves, moves_x - 50, cy - 20, 60, 60);
+    p.shape(r.s.moves, moves_x - 70, cy - 20, 60, 60);
     p.text(a.board.numMoves, moves_x, cy);
   }
 

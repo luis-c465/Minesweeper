@@ -10,6 +10,7 @@ public class Shapes extends ResourceHolder<PShape> {
   public PShape flag;
   public PShape trophy;
   public PShape moves;
+  public PShape mine;
 
   @Override
   protected void load() {
@@ -17,6 +18,7 @@ public class Shapes extends ResourceHolder<PShape> {
     flag = p.loadShape("flag.svg");
     trophy = p.loadShape("trophy.svg");
     moves = p.loadShape("box.svg");
+    mine = p.loadShape("mine.svg");
   }
 
   public Shapes(PApplet p) {

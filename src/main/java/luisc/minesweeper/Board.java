@@ -24,7 +24,7 @@ public class Board extends Obj {
   private final int DRAW_MARK = 11;
   private final int DRAW_WRONG_MARK = 12;
 
-  private int N_MINES = 40;
+  public int N_MINES = 40;
   private int N_ROWS = 16;
   private int N_COLS = 16;
 
