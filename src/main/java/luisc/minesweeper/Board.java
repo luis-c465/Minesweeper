@@ -302,9 +302,13 @@ public class Board extends Obj {
     }
   }
 
-  public void mouseClicked(MouseEvent e) {
+  public void mousePressed(MouseEvent e) {
     int x = e.getX();
     int y = e.getY();
+
+    if (y < TOP_MARGIN) {
+      return;
+    }
 
     int cCol = App.constrain((x - LEFT_MARGIN) / CELL_SIZE, 0, N_COLS);
     int cRow = App.constrain((y - TOP_MARGIN) / CELL_SIZE, 0, N_ROWS);
@@ -377,7 +381,7 @@ public class Board extends Obj {
     this.N_MINES = numMines;
     this.N_ROWS = numRows;
     this.N_COLS = numCols;
-    this.CELL_SIZE = 800 / (PApplet.max(numRows, numCols));
+    this.CELL_SIZE = 890 / (PApplet.max(numRows, numCols));
     this.numFlagsLeft = numMines;
 
     int height = numRows * CELL_SIZE;

@@ -1,5 +1,7 @@
 package luisc.minesweeper;
 
+import controlP5.ControlP5;
+import controlP5.ScrollableList;
 import luisc.lib.Obj;
 import luisc.lib.PC;
 
@@ -9,6 +11,8 @@ import luisc.lib.PC;
  * Also shows a hel button on how to use the program
  */
 public class Header extends Obj {
+
+  public ScrollableList mode;
 
   public static final int safe = 10;
   public static final int margin_top = 10;
@@ -29,6 +33,35 @@ public class Header extends Obj {
   @Override
   protected void _setup() {
     helpBtn = new HelpBtn(a);
+
+    setupScrollableList();
+  }
+
+  private void setupScrollableList() {
+    mode =
+      a.cp5
+        .addScrollableList("dropdown")
+        .setPosition(700, 0)
+        .setSize(130, 500)
+        .setBarHeight(20)
+        .setItemHeight(20)
+        .addItems(new String[] { "Easy", "Medium", "Hard", "Time Trial" })
+        .setLabel("Mode")
+        .close();
+
+    mode
+      .getValueLabel()
+      .align(ControlP5.LEFT, ControlP5.BOTTOM_OUTSIDE)
+      .setPaddingX(0)
+      .setFont(r.f.nunito)
+      .setSize(12);
+
+    mode
+      .getCaptionLabel()
+      .align(ControlP5.LEFT, ControlP5.BOTTOM_OUTSIDE)
+      .setPaddingX(0)
+      .setFont(r.f.nunito)
+      .setSize(12);
   }
 
   @Override

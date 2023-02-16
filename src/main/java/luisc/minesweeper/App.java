@@ -57,6 +57,26 @@ public final class App extends BaseApp {
   @Override
   public void mouseClicked(MouseEvent e) {
     helpModal.mouseClicked();
-    board.mouseClicked(e);
+  }
+
+  @Override
+  public void mousePressed(MouseEvent e) {
+    board.mousePressed(e);
+  }
+
+  public void dropdown(int n) {
+    if (n == 3) {
+      // Go to the time trial mode
+      return;
+    }
+
+    if (n == 0) {
+      board = BoardDifficulties.easy(this);
+    } else if (n == 1) {
+      board = BoardDifficulties.medium(this);
+    } else if (n == 2) {
+      board = BoardDifficulties.hard(this);
+    }
+    board.setup();
   }
 }
