@@ -40,6 +40,7 @@ public class Board extends Obj {
   private boolean alreadyDecided = false;
   private int minesLeft;
   private PImage[] img;
+  public int numMoves = 0;
 
   private int allCells;
   private String statusbar = "";
@@ -74,6 +75,8 @@ public class Board extends Obj {
 
     allCells = N_ROWS * N_COLS;
     field = new int[allCells];
+    alreadyDecided = false;
+    numMoves = 0;
 
     for (int i = 0; i < allCells; i++) {
       field[i] = COVER_FOR_CELL;
@@ -344,6 +347,7 @@ public class Board extends Obj {
           (field[(cRow * N_COLS) + cCol] > MINE_CELL) &&
           (field[(cRow * N_COLS) + cCol] < MARKED_MINE_CELL)
         ) {
+          numMoves++;
           field[(cRow * N_COLS) + cCol] -= COVER_FOR_CELL;
 
           if (field[(cRow * N_COLS) + cCol] == MINE_CELL) {

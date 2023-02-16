@@ -16,11 +16,13 @@ public class Header extends Obj {
   public static final int cy = 50;
   public static final int center = 700 / 2;
 
-  public static final int flags_x = 100;
+  public static final int flags_x = 70;
 
-  public static final int wins_x = 450;
-  public static final int losses_x = 550;
+  public static final int wins_x = 500;
+  public static final int losses_x = 600;
   public static final int middle_x = (wins_x + losses_x) / 2;
+
+  public static final int moves_x = 300;
 
   public HelpBtn helpBtn;
 
@@ -33,6 +35,7 @@ public class Header extends Obj {
   protected void _update() {
     showFlags();
     showWinsAndLosses();
+    showMoves();
 
     updateBtns();
   }
@@ -48,6 +51,11 @@ public class Header extends Obj {
 
     // Middle thing
     p.text("-", middle_x, cy);
+  }
+
+  private void showMoves() {
+    p.shape(r.s.moves, moves_x - 50, cy - 20, 60, 60);
+    p.text(a.board.numMoves, moves_x, cy);
   }
 
   private void showFlags() {
