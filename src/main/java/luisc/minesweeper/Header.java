@@ -22,11 +22,11 @@ public class Header extends Obj {
 
   public static final int flags_x = 70;
 
-  public static final int wins_x = 500;
-  public static final int losses_x = 600;
+  public static final int wins_x = 375;
+  public static final int losses_x = 475;
   public static final int middle_x = (wins_x + losses_x) / 2;
 
-  public static final int moves_x = 300;
+  public static final int moves_x = 250;
 
   public HelpBtn helpBtn;
 
@@ -43,7 +43,7 @@ public class Header extends Obj {
         .addScrollableList("dropdown")
         .setPosition(700, 0)
         .setSize(130, 500)
-        .setBarHeight(20)
+        .setBarHeight(30)
         .setItemHeight(20)
         .addItems(new String[] { "Easy", "Medium", "Hard", "Time Trial" })
         .setLabel("Mode")
@@ -66,6 +66,8 @@ public class Header extends Obj {
 
   @Override
   protected void _update() {
+    p.textSize(40);
+    // p.textAlign(PC.LEFT, PC.BOTTOM);
     showFlags();
     showWinsAndLosses();
     showMoves();
@@ -76,11 +78,23 @@ public class Header extends Obj {
 
   private void showWinsAndLosses() {
     // Wins
-    p.shape(r.s.trophy, wins_x - 50, cy - 20, 60, 60);
+    p.shape(
+      !a.board.inGame && a.board.won ? r.s.trophy : r.s.trophy_small,
+      wins_x - 50,
+      cy - 20,
+      60,
+      60
+    );
     p.text("" + a.wins, wins_x, cy);
 
     // Losses
-    p.shape(r.s.skull, losses_x + 50, cy - 20, 60, 60);
+    p.shape(
+      !a.board.inGame && !a.board.won ? r.s.skull : r.s.skull_small,
+      losses_x + 50,
+      cy - 20,
+      60,
+      60
+    );
     p.text("" + a.losses, losses_x, cy);
 
     // Middle thing
@@ -100,7 +114,7 @@ public class Header extends Obj {
   private void showFlags() {
     p.shapeMode(PC.CENTER);
     p.shape(r.s.flag, flags_x - 40, cy - 20, 60, 60);
-    p.text(a.board.numFlagsLeft, flags_x + 40, cy);
+    p.text(a.board.numFlagsLeft, flags_x + 20, cy);
   }
 
   private void updateBtns() {

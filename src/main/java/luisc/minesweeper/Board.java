@@ -36,7 +36,7 @@ public class Board extends Obj {
   public int TOP_MARGIN = 200;
 
   private int[] field;
-  private boolean inGame;
+  public boolean inGame;
   private boolean alreadyDecided = false;
   private int minesLeft;
   private PImage[] img;
@@ -44,6 +44,7 @@ public class Board extends Obj {
 
   private int allCells;
   private String statusbar = "";
+  public boolean won = false;
 
   @Override
   protected void _setup() {
@@ -287,6 +288,7 @@ public class Board extends Obj {
     if (uncover == 0 && inGame) {
       inGame = false;
       statusbar = "Game won";
+      won = true;
 
       if (!alreadyDecided) {
         a.wins++;
@@ -364,6 +366,10 @@ public class Board extends Obj {
         }
       }
     }
+  }
+
+  public boolean hasWon() {
+    return uncover == 0 && inGame;
   }
 
   public Board(App a, int numMines, int numRows, int numCols, int cellSize) {
