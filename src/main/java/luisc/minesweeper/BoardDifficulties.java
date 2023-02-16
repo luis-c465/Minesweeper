@@ -3,11 +3,11 @@ package luisc.minesweeper;
 public class BoardDifficulties {
 
   public static Board easy(App a) {
-    return new Board(a, 30, 15);
+    return new Board(a, 20, 15);
   }
 
   public static Board medium(App a) {
-    return new Board(a, 100, 24);
+    return new Board(a, 50, 24);
   }
 
   public static Board hard(App a) {
@@ -15,6 +15,6 @@ public class BoardDifficulties {
   }
 
   public static Board skillIssue(App a) {
-    return new Board(a, 8000, 95);
+    return new Board(a, 9024, 95);
   }
 }
