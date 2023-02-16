@@ -368,10 +368,6 @@ public class Board extends Obj {
     }
   }
 
-  public boolean hasWon() {
-    return uncover == 0 && inGame;
-  }
-
   public Board(App a, int numMines, int numRows, int numCols, int cellSize) {
     super(a);
     this.N_MINES = numMines;
