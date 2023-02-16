@@ -6,6 +6,7 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.event.MouseEvent;
 
+// TODO: Not forgot status bar
 public class Board extends Obj {
 
   private final int NUM_IMAGES = 13;
@@ -36,6 +37,7 @@ public class Board extends Obj {
 
   private int[] field;
   private boolean inGame;
+  private boolean alreadyDecided = false;
   private int minesLeft;
   private PImage[] img;
 
@@ -67,6 +69,7 @@ public class Board extends Obj {
     int cell;
 
     inGame = true;
+    numFlagsLeft = N_MINES;
     minesLeft = N_MINES;
 
     allCells = N_ROWS * N_COLS;
@@ -281,8 +284,18 @@ public class Board extends Obj {
     if (uncover == 0 && inGame) {
       inGame = false;
       statusbar = "Game won";
+
+      if (!alreadyDecided) {
+        a.wins++;
+        alreadyDecided = true;
+      }
     } else if (!inGame) {
       statusbar = "Game lost";
+
+      if (!alreadyDecided) {
+        a.losses++;
+        alreadyDecided = true;
+      }
     }
   }
 
@@ -290,21 +303,20 @@ public class Board extends Obj {
     int x = e.getX();
     int y = e.getY();
 
-    int cCol = (x - LEFT_MARGIN) / CELL_SIZE;
-    int cRow = (y - TOP_MARGIN) / CELL_SIZE;
-
-    boolean doRepaint = false;
+    int cCol = App.constrain((x - LEFT_MARGIN) / CELL_SIZE, 0, N_COLS);
+    int cRow = App.constrain((y - TOP_MARGIN) / CELL_SIZE, 0, N_ROWS);
 
     if (!inGame) {
       newGame();
       return;
     }
 
-    if ((x < N_COLS * CELL_SIZE) && (y < N_ROWS * CELL_SIZE)) {
+    if (
+      (x < (N_COLS * CELL_SIZE + LEFT_MARGIN)) &&
+      (y < (N_ROWS * CELL_SIZE + TOP_MARGIN))
+    ) {
       if (e.getButton() == PC.RIGHT) {
         if (field[(cRow * N_COLS) + cCol] > MINE_CELL) {
-          doRepaint = true;
-
           if (field[(cRow * N_COLS) + cCol] <= COVERED_MINE_CELL) {
             if (minesLeft > 0) {
               field[(cRow * N_COLS) + cCol] += MARK_FOR_CELL;
@@ -333,7 +345,6 @@ public class Board extends Obj {
           (field[(cRow * N_COLS) + cCol] < MARKED_MINE_CELL)
         ) {
           field[(cRow * N_COLS) + cCol] -= COVER_FOR_CELL;
-          doRepaint = true;
 
           if (field[(cRow * N_COLS) + cCol] == MINE_CELL) {
             inGame = false;
