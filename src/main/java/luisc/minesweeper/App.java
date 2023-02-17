@@ -18,6 +18,8 @@ public final class App extends BaseApp {
   public Header header;
   public HelpModal helpModal;
   public Board board;
+  public boolean speedrun = false;
+  public int bestTimeMs = Integer.MAX_VALUE;
 
   @Override
   public void draw() {
@@ -51,7 +53,7 @@ public final class App extends BaseApp {
 
   @Override
   public void setTitle() {
-    surface.setTitle("RICODE Seating");
+    surface.setTitle("RICODE Minesweeper");
   }
 
   @Override
@@ -65,18 +67,20 @@ public final class App extends BaseApp {
   }
 
   public void dropdown(int n) {
-    if (n == 3) {
-      // Go to the time trial mode
-      return;
-    }
-
     if (n == 0) {
       board = BoardDifficulties.easy(this);
+      speedrun = false;
     } else if (n == 1) {
       board = BoardDifficulties.medium(this);
+      speedrun = false;
     } else if (n == 2) {
       board = BoardDifficulties.hard(this);
+      speedrun = false;
+    } else if (n == 3) {
+      board = BoardDifficulties.timeTrial(this);
+      speedrun = true;
     }
+
     board.setup();
 
     resetSfx();
@@ -85,7 +89,11 @@ public final class App extends BaseApp {
   public void resetSfx() {
     r.sfx.explosion.rewind();
     r.sfx.explosion.pause();
+
     r.sfx.freeBird.rewind();
     r.sfx.freeBird.pause();
+
+    r.sfx.speedRun.rewind();
+    r.sfx.speedRun.pause();
   }
 }

@@ -30,6 +30,7 @@ public class Colors extends ResourceHolder<Integer> {
   public static final int gray = 0xff6b7280;
   public static final int selected = 0xff22d3ee;
   public static final int yellow = 0xfffbbf24;
+  public static final int timer = 0xff81e087;
 
   @Override
   protected void load() {}

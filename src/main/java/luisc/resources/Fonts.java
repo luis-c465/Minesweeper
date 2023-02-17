@@ -11,12 +11,16 @@ public class Fonts extends ResourceHolder<PFont> {
   public PFont nunito_small;
   public PFont nunito_smaller;
 
+  public PFont segoe;
+
   @Override
   protected void load() {
     nunito = p.createFont("fonts/Nunito.ttf", 64);
     nunito_small = p.createFont("fonts/Nunito.ttf", 20);
     nunito_smaller = p.createFont("fonts/Nunito.ttf", 20);
     p.textFont(nunito);
+
+    segoe = p.createFont("fonts/segoe.ttf", 20);
   }
 
   public Fonts(BaseApp p) {

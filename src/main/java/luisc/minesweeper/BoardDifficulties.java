@@ -18,7 +18,11 @@ public class BoardDifficulties {
     return new Board(a, 125, 40);
   }
 
+  public static Board timeTrial(App a) {
+    return new Board(a, 15, 13);
+  }
+
   public static Board skillIssue(App a) {
-    return new Board(a, 9024, 95);
+    return new Board(a, 999, 95);
   }
 }

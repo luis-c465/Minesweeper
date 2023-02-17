@@ -29,10 +29,12 @@ public class Header extends Obj {
   public static final int moves_x = 250;
 
   public HelpBtn helpBtn;
+  public Timer timer;
 
   @Override
   protected void _setup() {
     helpBtn = new HelpBtn(a);
+    timer = new Timer(a);
 
     setupScrollableList();
   }
@@ -74,6 +76,7 @@ public class Header extends Obj {
     // showNumMines();
 
     updateBtns();
+    timer.update();
   }
 
   private void showWinsAndLosses() {

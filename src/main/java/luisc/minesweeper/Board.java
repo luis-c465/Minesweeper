@@ -78,6 +78,7 @@ public class Board extends Obj {
     field = new int[allCells];
     alreadyDecided = false;
     numMoves = 0;
+    won = false;
 
     a.resetSfx();
 

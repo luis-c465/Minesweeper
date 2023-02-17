@@ -18,7 +18,7 @@ public class Sounds extends ResourceHolder<AudioPlayer> {
 
     explosion.setGain(-40f);
     freeBird.setGain(-30f);
-    speedRun.setGain(-50f);
+    speedRun.setGain(-20f);
   }
 
   public Sounds(BaseApp p) {
