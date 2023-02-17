@@ -2,6 +2,10 @@ package luisc.minesweeper;
 
 public class BoardDifficulties {
 
+  public static Board test(App a) {
+    return new Board(a, 1, 15);
+  }
+
   public static Board easy(App a) {
     return new Board(a, 20, 15);
   }

@@ -79,6 +79,8 @@ public class Board extends Obj {
     alreadyDecided = false;
     numMoves = 0;
 
+    a.resetSfx();
+
     for (int i = 0; i < allCells; i++) {
       field[i] = COVER_FOR_CELL;
     }
@@ -293,6 +295,7 @@ public class Board extends Obj {
       if (!alreadyDecided) {
         a.wins++;
         alreadyDecided = true;
+        r.sfx.freeBird.play(0);
       }
     } else if (!inGame) {
       statusbar = "Game lost";
@@ -300,6 +303,7 @@ public class Board extends Obj {
       if (!alreadyDecided) {
         a.losses++;
         alreadyDecided = true;
+        r.sfx.explosion.play(0);
       }
     }
   }
@@ -330,7 +334,8 @@ public class Board extends Obj {
             if (minesLeft > 0) {
               field[(cRow * N_COLS) + cCol] += MARK_FOR_CELL;
               numFlagsLeft--;
-              minesLeft--;
+              if (field[(cRow * N_COLS) + cCol] != 20) minesLeft--;
+              // minesLeft--;
               String msg = Integer.toString(minesLeft);
               statusbar = msg;
             } else {

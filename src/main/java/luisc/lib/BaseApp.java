@@ -1,6 +1,7 @@
 package luisc.lib;
 
 import controlP5.ControlP5;
+import ddf.minim.Minim;
 import java.util.ArrayList;
 import java.util.Random;
 import luisc.minesweeper.App;
@@ -23,8 +24,9 @@ public abstract class BaseApp extends PApplet {
   // * Util classes
   public Resources r;
 
-  // * luisc.seating.library classes
+  // * library classes
   public ControlP5 cp5;
+  public Minim audio;
 
   // Transition classes
   public TransitionIn transIn;
@@ -74,6 +76,7 @@ public abstract class BaseApp extends PApplet {
    * Setups util and library classes
    */
   protected void setupUtilAndLib() {
+    audio = new Minim(this);
     r = new Resources(this);
     cp5 = new ControlP5(this);
 

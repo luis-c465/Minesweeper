@@ -1,13 +1,11 @@
 package luisc.lib;
 
-import processing.core.PApplet;
-
 public abstract class ResourceHolder<T> {
 
-  public PApplet p;
+  public BaseApp p;
   public Class<? extends ResourceHolder> _class;
 
-  public ResourceHolder(PApplet p) {
+  public ResourceHolder(BaseApp p) {
     this.p = p;
     this._class = this.getClass();
 

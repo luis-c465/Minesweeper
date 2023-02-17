@@ -45,7 +45,7 @@ public final class App extends BaseApp {
     helpModal = new HelpModal(this);
     helpModal.setup();
 
-    board = BoardDifficulties.easy(this);
+    board = BoardDifficulties.test(this);
     board.setup();
   }
 
@@ -78,5 +78,14 @@ public final class App extends BaseApp {
       board = BoardDifficulties.hard(this);
     }
     board.setup();
+
+    resetSfx();
+  }
+
+  public void resetSfx() {
+    r.sfx.explosion.rewind();
+    r.sfx.explosion.pause();
+    r.sfx.freeBird.rewind();
+    r.sfx.freeBird.pause();
   }
 }

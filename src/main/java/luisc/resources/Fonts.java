@@ -1,7 +1,7 @@
 package luisc.resources;
 
+import luisc.lib.BaseApp;
 import luisc.lib.ResourceHolder;
-import processing.core.PApplet;
 import processing.core.PFont;
 
 public class Fonts extends ResourceHolder<PFont> {
@@ -19,7 +19,7 @@ public class Fonts extends ResourceHolder<PFont> {
     p.textFont(nunito);
   }
 
-  public Fonts(PApplet p) {
+  public Fonts(BaseApp p) {
     super(p);
   }
 }

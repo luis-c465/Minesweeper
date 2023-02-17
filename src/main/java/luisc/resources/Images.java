@@ -1,7 +1,7 @@
 package luisc.resources;
 
+import luisc.lib.BaseApp;
 import luisc.lib.ResourceHolder;
-import processing.core.PApplet;
 import processing.core.PImage;
 
 public class Images extends ResourceHolder<PImage> {
@@ -15,7 +15,7 @@ public class Images extends ResourceHolder<PImage> {
     tutorial = p.loadImage("instructions.png");
   }
 
-  public Images(PApplet p) {
+  public Images(BaseApp p) {
     super(p);
   }
 }

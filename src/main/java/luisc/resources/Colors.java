@@ -1,7 +1,7 @@
 package luisc.resources;
 
+import luisc.lib.BaseApp;
 import luisc.lib.ResourceHolder;
-import processing.core.PApplet;
 
 public class Colors extends ResourceHolder<Integer> {
 
@@ -34,7 +34,7 @@ public class Colors extends ResourceHolder<Integer> {
   @Override
   protected void load() {}
 
-  public Colors(PApplet p) {
+  public Colors(BaseApp p) {
     super(p);
   }
 }

@@ -1,7 +1,7 @@
 package luisc.resources;
 
+import luisc.lib.BaseApp;
 import luisc.lib.ResourceHolder;
-import processing.core.PApplet;
 import processing.core.PShape;
 
 public class Shapes extends ResourceHolder<PShape> {
@@ -25,7 +25,7 @@ public class Shapes extends ResourceHolder<PShape> {
     mine = p.loadShape("mine.svg");
   }
 
-  public Shapes(PApplet p) {
+  public Shapes(BaseApp p) {
     super(p);
   }
 }
