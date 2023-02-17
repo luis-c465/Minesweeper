@@ -41,7 +41,7 @@ public class Header extends Obj {
     mode =
       a.cp5
         .addScrollableList("dropdown")
-        .setPosition(700, 0)
+        .setPosition(550, 0)
         .setSize(130, 500)
         .setBarHeight(30)
         .setItemHeight(20)
