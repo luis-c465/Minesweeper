@@ -71,24 +71,6 @@ public class Timer extends Obj {
     );
   }
 
-  private void showHasStarted() {
-    p.fill(0);
-    p.rectMode(PC.CORNER);
-    p.rect(680, 0, 150, 100);
-
-    p.fill(Colors.timer);
-    p.textSize(20);
-    p.textMode(PC.CORNER);
-    p.textAlign(PC.LEFT, PC.CENTER);
-    p.text(
-      getTimeStr(minute(), second(), milis()),
-      680 + padding,
-      -30,
-      110,
-      80
-    );
-  }
-
   private String getTimeStr(int minute, int second, int milis) {
     return String.format("%02d:%02d:%03d", minute, second, milis);
   }

@@ -14,7 +14,7 @@ public final class App extends BaseApp {
   public LinkedList<Student> students = new LinkedList<Student>();
 
   // Game classes
-  public Intro intro;
+  public AppIntro intro;
   public Header header;
   public HelpModal helpModal;
   public Board board;
@@ -25,10 +25,10 @@ public final class App extends BaseApp {
   public void draw() {
     defaultSettings();
 
-    // intro.update();
-    // if (doingIntro) {
-    //   return;
-    // }
+    intro.update();
+    if (doingIntro) {
+      return;
+    }
 
     header.update();
     helpModal.update();
@@ -38,8 +38,8 @@ public final class App extends BaseApp {
 
   @Override
   protected void setupAppClasses() {
-    // intro = new Intro(this);
-    // intro.setup();
+    intro = new AppIntro(this);
+    intro.setup();
 
     header = new Header(this);
     header.setup();

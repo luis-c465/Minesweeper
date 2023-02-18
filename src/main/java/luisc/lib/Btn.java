@@ -60,7 +60,7 @@ public abstract class Btn extends Clickable {
     p.text(txt, txt_x, txt_y);
 
     if (hasIcon) {
-      p.shapeMode(c.CENTER);
+      p.shapeMode(PC.CENTER);
       p.shape(icon, icon_x, icon_y, icon_size, icon_size);
     }
   }

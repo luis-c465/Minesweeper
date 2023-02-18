@@ -1,20 +1,25 @@
-package luisc.minesweeper;
+package luisc.lib;
 
-import luisc.lib.Btn;
-import luisc.lib.Transitionable;
+import luisc.minesweeper.App;
 import processing.core.PImage;
 
-public class Intro extends Transitionable {
+/**
+ * Abstract class for a full screen Intro that will play at the beginning of the program
+ */
+public abstract class Intro extends Transitionable {
 
-  PImage[] slides;
-  int maxSlide = -1;
-  int index = 0;
+  public PImage intro;
+  public PImage tutorial;
 
-  ContBtn contBtn;
-  BackBtn backBtn;
+  public PImage[] slides;
+  public int maxSlide = -1;
+  public int index = 0;
 
-  protected void _setup() {
-    slides = new PImage[] { r.i.intro, r.i.tutorial };
+  public ContBtn contBtn;
+  public BackBtn backBtn;
+
+  @Override
+  protected void postSetup() {
     maxSlide = slides.length - 1;
 
     contBtn = new ContBtn(a);
@@ -22,16 +27,17 @@ public class Intro extends Transitionable {
 
     contBtn.setup();
     backBtn.setup();
+
+    super.postSetup();
   }
 
   protected void _update() {
-    p.image(slides[index], a.cw, a.ch);
+    p.image(slides[index], App.cw, App.ch);
 
     contBtn.update();
     backBtn.update();
 
     if (contBtn.clicked) {
-      p.println("woah clicked");
       if (index == maxSlide) {
         trans = true;
       } else if ((index + 1) <= maxSlide) {
@@ -54,7 +60,7 @@ public class Intro extends Transitionable {
 
     protected void _setup() {
       w = 100;
-      h = 50;
+      h = 25;
 
       x = App.w - 10 - w;
       y = App.h - 10;
@@ -90,12 +96,12 @@ public class Intro extends Transitionable {
 
     protected void _setup() {
       w = 100;
-      h = 50;
+      h = 25;
 
       x = 10;
       y = App.h - 10;
 
-      txt_size = 20;
+      txt_size = 25;
       icon_size = 30;
 
       txt = "Back";

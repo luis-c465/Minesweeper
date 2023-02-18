@@ -49,6 +49,7 @@ public class Header extends Obj {
         .setItemHeight(20)
         .addItems(new String[] { "Easy", "Medium", "Hard", "Time Trial" })
         .setLabel("Mode")
+        .hide()
         .close();
 
     mode
@@ -68,6 +69,8 @@ public class Header extends Obj {
 
   @Override
   protected void _update() {
+    mode.show();
+
     p.textSize(40);
     // p.textAlign(PC.LEFT, PC.BOTTOM);
     showFlags();
