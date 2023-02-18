@@ -49,8 +49,8 @@ public class Header extends Obj {
         .setItemHeight(20)
         .addItems(new String[] { "Easy", "Medium", "Hard", "Time Trial" })
         .setLabel("Mode")
-        .hide()
-        .close();
+        .close()
+        .hide();
 
     mode
       .getValueLabel()

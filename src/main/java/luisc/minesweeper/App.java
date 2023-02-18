@@ -31,9 +31,9 @@ public final class App extends BaseApp {
     }
 
     header.update();
-    helpModal.update();
 
     board.update();
+    helpModal.update();
   }
 
   @Override
@@ -47,7 +47,7 @@ public final class App extends BaseApp {
     helpModal = new HelpModal(this);
     helpModal.setup();
 
-    board = BoardDifficulties.test(this);
+    board = BoardDifficulties.easy(this);
     board.setup();
   }
 
@@ -63,7 +63,9 @@ public final class App extends BaseApp {
 
   @Override
   public void mousePressed(MouseEvent e) {
-    board.mousePressed(e);
+    if (!helpModal.show) {
+      board.mousePressed(e);
+    }
   }
 
   public void dropdown(int n) {
