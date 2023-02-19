@@ -84,18 +84,5 @@ public final class App extends BaseApp {
     }
 
     board.setup();
-
-    resetSfx();
-  }
-
-  public void resetSfx() {
-    r.sfx.explosion.rewind();
-    r.sfx.explosion.pause();
-
-    r.sfx.freeBird.rewind();
-    r.sfx.freeBird.pause();
-
-    r.sfx.speedRun.rewind();
-    r.sfx.speedRun.pause();
   }
 }

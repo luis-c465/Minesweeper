@@ -15,13 +15,11 @@ public class Resources {
   public Shapes s;
   public Colors c;
   public Fonts f;
-  public Sounds sfx;
 
   public Resources(BaseApp p) {
     i = new Images(p);
     s = new Shapes(p);
     c = new Colors(p);
     f = new Fonts(p);
-    sfx = new Sounds(p);
   }
 }

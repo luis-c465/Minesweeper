@@ -24,7 +24,6 @@ public class Timer extends Obj {
 
     if (!running && a.speedrun && a.board.numMoves == 1 && !a.board.won) {
       start();
-      r.sfx.speedRun.play();
     }
   }
 
@@ -81,8 +80,6 @@ public class Timer extends Obj {
 
     if (running && a.speedrun && !a.board.inGame) {
       stop();
-      r.sfx.speedRun.rewind();
-      r.sfx.speedRun.pause();
 
       if (a.board.won && stopTime - startTime < a.bestTimeMs) {
         a.bestTimeMs = stopTime - startTime;
