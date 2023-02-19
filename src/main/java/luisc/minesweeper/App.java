@@ -63,7 +63,7 @@ public final class App extends BaseApp {
 
   @Override
   public void mousePressed(MouseEvent e) {
-    if (!helpModal.show) {
+    if (!helpModal.show && !doingIntro) {
       board.mousePressed(e);
     }
   }
